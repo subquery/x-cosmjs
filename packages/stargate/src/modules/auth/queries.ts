@@ -13,6 +13,12 @@ export interface AuthExtension {
      * `typeUrl` and decode the `value` using its own type decoder.
      */
     readonly account: (address: string) => Promise<Any | null>;
+
+    /**
+     * Returns the list of all module accounts available in the blockchain if they exist.
+     * If no module accounts are available, it returns an empty array.
+     */
+    readonly moduleAccounts: () => Promise<Any[]>;
   };
 }
 
@@ -27,6 +33,10 @@ export function setupAuthExtension(base: QueryClient): AuthExtension {
       account: async (address: string) => {
         const { account } = await queryService.Account({ address: address });
         return account ?? null;
+      },
+      moduleAccounts: async () => {
+        const { accounts } = await queryService.ModuleAccounts();
+        return accounts ?? [];
       },
     },
   };
