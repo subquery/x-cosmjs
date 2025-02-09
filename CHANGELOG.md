@@ -6,6 +6,19 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [0.33.0] - 2025-01-15
+
+### Changed
+
+- Upgrade to yarn 4 and drop Node.js 16 support ([#1552])
+- @cosmjs/stargate: Removed support for verified queries. This feature depends
+  on a JavaScript implementation of ICS-23 but
+  [@confio/ics23 is unmaintained](https://github.com/cosmos/cosmjs/issues/1618)
+  without replacement.
+- @cosmjs/proto-signing: Upgrade protobufjs to 7.4.
+
+[#1552]: https://github.com/cosmos/cosmjs/issues/1552
+
 ## [0.32.4] - 2024-06-26
 
 ### Fixed
@@ -1462,7 +1475,8 @@ CHANGELOG entries missing. Please see [the diff][0.24.1].
   `FeeTable`. @cosmjs/cosmwasm has its own `FeeTable` with those properties.
 - @cosmjs/sdk38: Rename package to @cosmjs/launchpad.
 
-[unreleased]: https://github.com/cosmos/cosmjs/compare/v0.32.4...HEAD
+[unreleased]: https://github.com/cosmos/cosmjs/compare/v0.33.0...HEAD
+[0.33.0]: https://github.com/cosmos/cosmjs/compare/v0.32.4...v0.33.0
 [0.32.4]: https://github.com/cosmos/cosmjs/compare/v0.32.3...v0.32.4
 [0.32.3]: https://github.com/cosmos/cosmjs/compare/v0.32.2...v0.32.3
 [0.32.2]: https://github.com/cosmos/cosmjs/compare/v0.32.1...v0.32.2
